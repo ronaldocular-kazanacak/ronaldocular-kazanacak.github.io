@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronaldo · profil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+        }
+        .container {
+            background: #222;
+            padding: 2rem 2.5rem 2.5rem 2.5rem;
+            border-radius: 3.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.8rem;
+            border: 1px solid #3a3a3a;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.8rem;
+            justify-items: center;
+            align-items: center;
+        }
+        .card {
+            background: #2b2b2b;
+            padding: 0.8rem 0.8rem 1rem 0.8rem;
+            border-radius: 2rem;
+            transition: 0.2s ease;
+            border: 1px solid #3f3f3f;
+            box-shadow: 0 6px 0 #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 160px;
+        }
+        .card:hover {
+            transform: scale(1.02);
+            border-color: #5a5a5a;
+            background: #303030;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            background: #1f1f1f;
+            display: block;
+            border: 2px solid #3d3d3d;
+        }
+        .card span {
+            margin-top: 0.6rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            color: #d0d0d0;
+            background: #1e1e1e;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #3c3c3c;
+        }
+        .footer-text {
+            color: #b0b0b0;
+            background: #1c1c1c;
+            padding: 0.7rem 2.2rem;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            border: 1px solid #3d3d3d;
+            box-shadow: inset 0 2px 3px #0a0a0a;
+            margin-top: 0.2rem;
+        }
+        .footer-text i {
+            font-style: normal;
+            background: #2d2d2d;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            margin: 0 0.2rem;
+        }
+        .note {
+            color: #7a7a7a;
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            margin-top: 0.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="grid">
+        <div class="card">
+            <img src="ronaldo0.jpg" alt="ronaldo0">
+            <span>ronaldo0</span>
+        </div>
+        <div class="card">
+            <img src="ronaldo1.jpg" alt="ronaldo1">
+            <span>ronaldo1</span>
+        </div>
+        <div class="card">
+            <img src="ronaldo2.jpg" alt="ronaldo2">
+            <span>ronaldo2</span>
+        </div>
+        <div class="card">
+            <img src="ronaldo3.jpg" alt="ronaldo3">
+            <span>ronaldo3</span>
+        </div>
+    </div>
+    <div class="footer-text">
+        ⚡ alabilirsiniz Ronaldo profil fotoğrafı ⚡
+    </div>
+    <div class="note">istediğiniz gibi alın size armağan</div>
+</div>
+</body>
+</html>
