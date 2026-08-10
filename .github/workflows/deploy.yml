@@ -1,0 +1,72 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./          # Tüm projeyi yayınla
+          publish_branch: gh-pages
+          force_orphan: true
+          allow_empty_commit: true
+        continue-on-error: true
+        id: deploy
+
+      - name: Retry 1 (30 sn sonra)
+        if: steps.deploy.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy Retry 1
+        if: steps.deploy.outcome == 'failure'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          force_orphan: true
+          allow_empty_commit: true
+        continue-on-error: true
+        id: deploy_retry1
+
+      - name: Retry 2 (60 sn sonra)
+        if: steps.deploy_retry1.outcome == 'failure'
+        run: sleep 60
+
+      - name: Deploy Retry 2
+        if: steps.deploy_retry1.outcome == 'failure'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          force_orphan: true
+          allow_empty_commit: true
+        continue-on-error: true
+        id: deploy_retry2
+
+      - name: Retry 3 (90 sn sonra)
+        if: steps.deploy_retry2.outcome == 'failure'
+        run: sleep 90
+
+      - name: Deploy Retry 3 (son şans)
+        if: steps.deploy_retry2.outcome == 'failure'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          force_orphan: true
+          allow_empty_commit: true
