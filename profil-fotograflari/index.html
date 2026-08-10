@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronaldo · profil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+        }
+        .container {
+            background: #222;
+            padding: 2rem 2.5rem 2.5rem 2.5rem;
+            border-radius: 3.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.8rem;
+            border: 1px solid #3a3a3a;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.8rem;
+            justify-items: center;
+            align-items: center;
+        }
+        .card {
+            background: #2b2b2b;
+            padding: 0.8rem 0.8rem 1rem 0.8rem;
+            border-radius: 2rem;
+            transition: 0.2s ease;
+            border: 1px solid #3f3f3f;
+            box-shadow: 0 6px 0 #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 160px;
+        }
+        .card:hover {
+            transform: scale(1.02);
+            border-color: #5a5a5a;
+            background: #303030;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            background: #1f1f1f;
+            display: block;
+            border: 2px solid #3d3d3d;
+        }
+        .card span {
+            margin-top: 0.6rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            color: #d0d0d0;
+            background: #1e1e1e;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #3c3c3c;
+        }
+        .footer-text {
+            color: #b0b0b0;
+            background: #1c1c1c;
+            padding: 0.7rem 2.2rem;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            border: 1px solid #3d3d3d;
+            box-shadow: inset 0 2px 3px #0a0a0a;
+            margin-top: 0.2rem;
+        }
+        .footer-text i {
+            font-style: normal;
+            background: #2d2d2d;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            margin: 0 0.2rem;
+        }
+        .note {
+            color: #7a7a7a;
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            margin-top: 0.2rem;
+        }
+        .download-btn {
+            background: #2d2d2d;
+            border: 1px solid #4a4a4a;
+            color: #e0e0e0;
+            padding: 0.6rem 2rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 0 #111;
+            letter-spacing: 0.3px;
+            margin-top: 0.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .download-btn:hover {
+            background: #3a3a3a;
+            border-color: #6a6a6a;
+            transform: scale(1.02);
+        }
+        .download-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #111;
+        }
+        .btn-wrap {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="grid">
+        <div class="card">
+            <img src="https://images.makearmy.io/i/a88ad213-4374-4440-8ad4-a7d03ecdc137.jpg" alt="ronaldo0" id="img0">
+            <span>ronaldo0</span>
+        </div>
+        <div class="card">
+            <img src="https://images.makearmy.io/i/5395906b-f1e1-4a60-9d59-a873aebfa04c.jpg" alt="ronaldo1" id="img1">
+            <span>ronaldo1</span>
+        </div>
+        <div class="card">
+            <img src="https://images.makearmy.io/i/a9be5a8a-90f4-4570-9178-dbb949cffa79.jpg" alt="ronaldo2" id="img2">
+            <span>ronaldo2</span>
+        </div>
+        <div class="card">
+            <img src="https://images.makearmy.io/i/fa558802-85aa-48f2-8173-4a96fde74dda.jpg" alt="ronaldo3" id="img3">
+            <span>ronaldo3</span>
+        </div>
+    </div>
+
+    <div class="footer-text">
+        ⚡ alabilirsiniz Ronaldo profil fotoğrafı ⚡
+    </div>
+
+    <div class="btn-wrap">
+        <button class="download-btn" data-img="img0">⬇ ronaldo0</button>
+        <button class="download-btn" data-img="img1">⬇ ronaldo1</button>
+        <button class="download-btn" data-img="img2">⬇ ronaldo2</button>
+        <button class="download-btn" data-img="img3">⬇ ronaldo3</button>
+    </div>
+
+    <div class="note">istediğiniz gibi alın size armağan · ronaldocular , inc</div>
+</div>
+<script>
+    (function() {
+        const buttons = document.querySelectorAll('.download-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const imgId = this.dataset.img;
+                const imgElement = document.getElementById(imgId);
+                if (!imgElement) return;
+                const imgSrc = imgElement.src;
+                if (!imgSrc) return;
+                const fileName = imgId + '.jpg';
+                fetch(imgSrc)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = fileName;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    })
+                    .catch(() => {
+                        const a = document.createElement('a');
+                        a.href = imgSrc;
+                        a.download = fileName;
+                        a.target = '_blank';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                    });
+            });
+        });
+    })();
+</script>
+</body>
+</html>
