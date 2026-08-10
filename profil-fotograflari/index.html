@@ -99,32 +99,109 @@
             letter-spacing: 0.5px;
             margin-top: 0.2rem;
         }
+        .download-btn {
+            background: #2d2d2d;
+            border: 1px solid #4a4a4a;
+            color: #e0e0e0;
+            padding: 0.6rem 2rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 0 #111;
+            letter-spacing: 0.3px;
+            margin-top: 0.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .download-btn:hover {
+            background: #3a3a3a;
+            border-color: #6a6a6a;
+            transform: scale(1.02);
+        }
+        .download-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #111;
+        }
+        .btn-wrap {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="grid">
         <div class="card">
-            <img src="https://images.makearmy.io/i/a88ad213-4374-4440-8ad4-a7d03ecdc137.jpg" alt="ronaldo0">
+            <img src="https://images.makearmy.io/i/a88ad213-4374-4440-8ad4-a7d03ecdc137.jpg" alt="ronaldo0" id="img0">
             <span>ronaldo0</span>
         </div>
         <div class="card">
-            <img src="https://images.makearmy.io/i/5395906b-f1e1-4a60-9d59-a873aebfa04c.jpg" alt="ronaldo1">
+            <img src="https://images.makearmy.io/i/5395906b-f1e1-4a60-9d59-a873aebfa04c.jpg" alt="ronaldo1" id="img1">
             <span>ronaldo1</span>
         </div>
         <div class="card">
-            <img src="https://images.makearmy.io/i/a9be5a8a-90f4-4570-9178-dbb949cffa79.jpg" alt="ronaldo2">
+            <img src="https://images.makearmy.io/i/a9be5a8a-90f4-4570-9178-dbb949cffa79.jpg" alt="ronaldo2" id="img2">
             <span>ronaldo2</span>
         </div>
         <div class="card">
-            <img src="https://images.makearmy.io/i/fa558802-85aa-48f2-8173-4a96fde74dda.jpg" alt="ronaldo3">
+            <img src="https://images.makearmy.io/i/fa558802-85aa-48f2-8173-4a96fde74dda.jpg" alt="ronaldo3" id="img3">
             <span>ronaldo3</span>
         </div>
     </div>
+
     <div class="footer-text">
         ⚡ alabilirsiniz Ronaldo profil fotoğrafı ⚡
     </div>
-    <div class="note">istediğiniz gibi alın size armağan</div>
+
+    <div class="btn-wrap">
+        <button class="download-btn" data-img="img0">⬇ ronaldo0</button>
+        <button class="download-btn" data-img="img1">⬇ ronaldo1</button>
+        <button class="download-btn" data-img="img2">⬇ ronaldo2</button>
+        <button class="download-btn" data-img="img3">⬇ ronaldo3</button>
+    </div>
+
+    <div class="note">istediğiniz gibi alın size armağan · yorum satırı yok</div>
 </div>
+<script>
+    (function() {
+        const buttons = document.querySelectorAll('.download-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const imgId = this.dataset.img;
+                const imgElement = document.getElementById(imgId);
+                if (!imgElement) return;
+                const imgSrc = imgElement.src;
+                if (!imgSrc) return;
+                const fileName = imgId + '.jpg';
+                fetch(imgSrc)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = fileName;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    })
+                    .catch(() => {
+                        const a = document.createElement('a');
+                        a.href = imgSrc;
+                        a.download = fileName;
+                        a.target = '_blank';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                    });
+            });
+        });
+    })();
+</script>
 </body>
 </html>
